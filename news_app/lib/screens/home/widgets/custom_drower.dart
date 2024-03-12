@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:news_app/config/constants/constants.dart';
+import 'package:news_app/config/models/category_models.dart';
 
 class CustomDrower extends StatelessWidget {
-  const CustomDrower({super.key});
-
+  CustomDrower({
+    super.key,
+    this.categoryModel,
+    required this.onCategoryDrowerTap,
+  });
+  final CategoryModel? categoryModel;
+  Function onCategoryDrowerTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +29,9 @@ class CustomDrower extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              onCategoryDrowerTap(); //onCategoryDrowerTap Function Execute the function
+            },
             child: Padding(
               padding: const EdgeInsets.only(
                 left: 15,
